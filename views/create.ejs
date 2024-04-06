@@ -1,0 +1,11 @@
+<!-- Include the header and navbar -->
+<%- include("partials/header.ejs") %> <%- include("partials/navbar.ejs") %>
+
+<!-- Main content area where we include the createPost.ejs partial -->
+<main>
+  <!-- Pass `tempPost` to the createPost.ejs partial -->
+  <%- include("partials/createPost.ejs", { posts: tempPost }) %>
+</main>
+
+<!-- Include the footer -->
+<%- include("partials/footer.ejs") %>

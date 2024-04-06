@@ -1,0 +1,15 @@
+<!-- Include the header and navbar -->
+<%- include("partials/header.ejs") %> <%- include("partials/navbar.ejs") %>
+
+<!-- Main content area where we include the createPost.ejs partial -->
+<main>
+  <div class="container mt-5">
+    <h1>Success!</h1>
+    <p>Your post "<%= postName %>" has been successfully created.</p>
+    <a href="/" class="btn btn-primary">Go to Home</a>
+    <a href="/create" class="btn btn-secondary">Create Another Post</a>
+  </div>
+</main>
+
+<!-- Include the footer -->
+<%- include("partials/footer.ejs") %>

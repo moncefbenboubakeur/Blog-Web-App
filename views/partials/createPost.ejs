@@ -1,0 +1,38 @@
+<!-- create.ejs -->
+<form action="/create" method="POST">
+  <div class="mb-3">
+    <label for="postName" class="form-label">Post Name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="postName"
+      name="postName"
+      value="<%= tempPost.postName %>"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="postDate" class="form-label">Post Date</label>
+    <input
+      type="date"
+      class="form-control"
+      id="postDate"
+      name="postDate"
+      value="<%= tempPost.postDate %>"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="postContent" class="form-label">Content</label>
+    <textarea
+      class="form-control"
+      id="postContent"
+      name="postContent"
+      rows="3"
+      required
+    >
+<%= tempPost.postContent %></textarea
+    >
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
