@@ -46,7 +46,8 @@ footer {
   /* bottom: 0; */
 }
 
-form {
+form,
+.indexPage {
   width: 60%;
   padding: 20px;
   background-color: #eaecef;
