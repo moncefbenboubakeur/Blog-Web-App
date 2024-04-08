@@ -73,6 +73,11 @@ app.get("/view", (req, res) => {
   res.render("view.ejs", { listPosts: posts });
 });
 
+app.get("/update", (req, res) => {
+  console.log("Loaded posts:", posts);
+  res.render("update.ejs", { listPosts: posts });
+});
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

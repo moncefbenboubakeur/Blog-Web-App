@@ -1,0 +1,80 @@
+<!-- create.ejs -->
+<div class="container col-8 mt-0" id="updateFormContainer">
+  <h1 class="alert alert-primary col-8 mx-auto text-center" role="alert">
+    Update Blog Post
+  </h1>
+  <% if (posts && posts.length > 0) { %>
+  <div id="postSelection" class="col-7 mt-3">
+    <% posts.forEach((post, index) => { %>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="postId" id="post<%=
+      index %>" value="<%= post.id %>" <%= index === 0 ? 'checked' : '' %>
+      data-post-name="<%= post.postName %>" data-post-date="<%= post.postDate
+      %>" data-post-content="<%= post.postContent %>">
+      <label class="form-check-label" for="post<%= index %>">
+        <%= post.postName %>
+      </label>
+    </div>
+    <% }); %>
+    <button
+      type="button"
+      class="btn btn-primary mt-3"
+      onclick="loadPostData();"
+    >
+      Load Post for Editing
+    </button>
+  </div>
+  <form action="/posts/update" method="POST" id="updateForm" class="mt-3">
+    <div class="mb-3">
+      <label for="postName" class="form-label">Post Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="postName"
+        name="postName"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="postDate" class="form-label">Post Date</label>
+      <input
+        type="date"
+        class="form-control"
+        id="postDate"
+        name="postDate"
+        required
+      />
+    </div>
+    <div class="mb-3">
+      <label for="postContent" class="form-label">Content</label>
+      <textarea
+        class="form-control"
+        id="postContent"
+        name="postContent"
+        rows="3"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <% } else { %>
+  <p class="alert alert-warning" role="alert">No posts available to update.</p>
+  <% } %>
+</div>
+
+<script>
+  function loadPostData() {
+    const selectedRadio = document.querySelector(
+      'input[name="postId"]:checked'
+    );
+    if (selectedRadio) {
+      const postName = selectedRadio.getAttribute("data-post-name");
+      const postDate = selectedRadio.getAttribute("data-post-date");
+      const postContent = selectedRadio.getAttribute("data-post-content");
+
+      document.getElementById("postName").value = postName;
+      document.getElementById("postDate").value = postDate;
+      document.getElementById("postContent").value = postContent;
+    }
+  }
+</script>

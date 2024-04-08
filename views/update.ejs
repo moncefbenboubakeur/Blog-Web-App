@@ -1,0 +1,12 @@
+<!-- Include the header and navbar -->
+<%- include("partials/header.ejs") %> <%- include("partials/navbar.ejs") %>
+
+<!-- Main content area where we include the viewPost.ejs partial -->
+<main>
+  <!-- Pass `posts` to the updatePost.ejs partial -->
+
+  <%- include("partials/updatePost.ejs", { posts: listPosts }) %>
+</main>
+
+<!-- Include the footer -->
+<%- include("partials/footer.ejs") %>
